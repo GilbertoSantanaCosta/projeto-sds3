@@ -16,9 +16,8 @@ import javax.persistence.Table;
 @Table(name = "tb_sales")
 public class Sale implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,13 +25,13 @@ public class Sale implements Serializable {
 	private Integer deals;
 	private Double amount;
 	private LocalDate date;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
-	
+
 	public Sale() {
-		
+
 	}
 
 	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
@@ -109,6 +108,5 @@ public class Sale implements Serializable {
 		Sale other = (Sale) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 }

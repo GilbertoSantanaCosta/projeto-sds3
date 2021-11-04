@@ -16,22 +16,20 @@ import javax.persistence.Table;
 @Table(name = "tb_sellers")
 public class Seller implements Serializable {
 
-
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	@OneToMany(mappedBy = "seller")
-	private List <Sale> sales = new ArrayList<>();
-	
+	private List<Sale> sales = new ArrayList<>();
+
 	public Seller() {
-		
+
 	}
-	
+
 	public Seller(Long id, String name) {
 		super();
 		this.id = id;
@@ -53,7 +51,6 @@ public class Seller implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
 	public List<Sale> getSales() {
 		return sales;
@@ -79,6 +76,5 @@ public class Seller implements Serializable {
 		Seller other = (Seller) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 }
